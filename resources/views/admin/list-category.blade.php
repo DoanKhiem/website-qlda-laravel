@@ -12,27 +12,33 @@
                         <th>STT</th>
                         <th>Tên thương hiệu</th>
                         <th>Đường dẫn</th>
-                        
+                        <th>Trạng thái</th>
                         <th>Hình ảnh</th>
                         <th>Chức năng</th>
-                        
                     </tr>
                     </thead>
                     <tbody>
+                    @forelse($category as $value)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$value->name}}</td>
+                        <td>{{$value->slug}}</td>
+{{--                        @if($value->status == 1)--}}
+{{--                        <td>Hien</td>--}}
+{{--                        @else--}}
+{{--                        <td>An</td>--}}
+{{--                        @endif--}}
+                        <td>{{$value->status == 1 ? 'Hien' : 'An'}}</td>
+                        <td>{{$value->logo}}</td>
                         <td>
-                            <button class="mb-2 mr-2 btn btn-warning">Sửa</button>
-                            <button class="mb-2 mr-2 btn btn-danger">Xóa</button>
+                            <a href="{{route('admin.edit-category', $value->id)}}" class="mb-2 mr-2 btn btn-warning">Sửa</a>
+                            <a href="{{route('admin.delete-category', $value->id)}}" class="mb-2 mr-2 btn btn-danger">Xóa</a>
                             <!-- <button class="mb-2 mr-2 btn btn-light"><a target="_blank" href="{{ route('user.products') }}">View</a></button> -->
                         </td>
-                        
                     </tr>
-                    
+                    @empty
+                        <div>Khoong cos ban gi nao</div>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

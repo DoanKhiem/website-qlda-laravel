@@ -7,32 +7,32 @@
         <!-- <div class="row"> -->
             <!-- <div class="col-md-12"> -->
                 <div class="main-card mb-3 card">
-                    <div class="card-body"><h5 class="card-title">Thêm thương hiệu</h5>
+                    <div class="card-body"><h5 class="card-title">Sửa thương hiệu</h5>
                         <form class="row" method="POST">
                             @csrf
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="">Tên thương hiệu</label>
-                                    <input name="name" placeholder="Nhập tên sản phảm" type="text" class="mb-2 form-control">
+                                    <input value="{{$category->name}}" name="name" placeholder="Nhập tên sản phảm" type="text" class="mb-2 form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="">Trạng thái</label>
                                     <div class="radio">
-                                        <input name="status" type="radio" value="0">
+                                        <input name="status" type="radio" value="0" {{$category->status == 0 ? 'checked' : ''}}>
                                         Ẩn
                                     </div>
                                     <div class="radio">
-                                        <input name="status" type="radio" value="1">
+                                        <input name="status" type="radio" value="1" {{$category->status == 1 ? 'checked' : ''}}>
                                         Hiện
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label  class="">Đường dẫn</label>
-                                    <input name="slug" placeholder="Nhập ram" type="text" class="mb-2 form-control">
+                                    <input value="{{$category->slug}}" name="slug" placeholder="Nhập ram" type="text" class="mb-2 form-control">
                                 </div>
                                 <div class="form-group">
                                     <label  class="">Logo</label>
-                                    <input name="logo" placeholder="Nhập ram" type="text" class="mb-2 form-control">
+                                    <input value="{{$category->logo}}" name="logo" placeholder="Nhập ram" type="text" class="mb-2 form-control">
                                 </div>
 {{--                                <div class="position-relative form-group">--}}
 {{--                                    <label  class="">Logo thương hiệu</label>--}}
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button class="btn btn-primary" type="submit">Thêm thương hiệu</button>
+                                <button class="btn btn-primary" type="submit">Sửa thương hiệu</button>
                             </div>
                         </form>
                     </div>

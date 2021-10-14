@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,24 +16,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('admin')->group(function(){
-    
+
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
     // category
-    Route::get('/add-category', function () {
-        return view('admin.add-category');
-    })->name('admin.add-category');
+    Route::get('/add-category', [CategoryController::class, 'add'])->name('admin.add-category');
+    Route::post('/add-category', [CategoryController::class, 'create'])->name('admin.add-category');
+    Route::get('/edit-category/{id}', [CategoryController::class, 'edit'])->name('admin.edit-category');
+    Route::post('/edit-category/{id}', [CategoryController::class, 'update'])->name('admin.update-category');
+    Route::get('/delete-category/{id}', [CategoryController::class, 'delete'])->name('admin.delete-category');
 
-    Route::get('/list-category', function () {
-        return view('admin.list-category');
-    })->name('admin.list-category');
+    Route::get('/list-category', [CategoryController::class, 'index'])->name('admin.list-category');
 
-    // banner
-    Route::get('/add-banner', [BannerController::class,'create'])->name('admin.add-banner');
+//     banner
+    Route::get('/add-banner', function () {
+        return view('admin.add-banner');
+    })->name('admin.add-banner');
 
-    Route::post('/add-banner', [BannerController::class,'store']);
+    Route::post('/add-banner', function () {
+        return view('admin.list-banner');
+    });
 
 
     Route::get('/list-banner', function () {
