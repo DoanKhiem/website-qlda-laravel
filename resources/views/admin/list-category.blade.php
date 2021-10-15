@@ -12,6 +12,7 @@
                         <th>STT</th>
                         <th>Tên thương hiệu</th>
                         <th>Đường dẫn</th>
+                        <th>Số sản phẩm</th>
                         <th>Trạng thái</th>
                         <th>Hình ảnh</th>
                         <th>Chức năng</th>
@@ -23,6 +24,7 @@
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$value->name}}</td>
                         <td>{{$value->slug}}</td>
+                        <td>{{$value->numberOfProducts->count()}}</td>
 {{--                        @if($value->status == 1)--}}
 {{--                        <td>Hien</td>--}}
 {{--                        @else--}}

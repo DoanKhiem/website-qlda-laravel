@@ -15,4 +15,7 @@ class Category extends Model
         'status',
         'logo'
     ];
+    public function numberOfProducts(){
+        return $this->hasMany(Product::class);
+    }
 }

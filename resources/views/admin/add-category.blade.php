@@ -8,7 +8,7 @@
             <!-- <div class="col-md-12"> -->
                 <div class="main-card mb-3 card">
                     <div class="card-body"><h5 class="card-title">Thêm thương hiệu</h5>
-                        <form class="row" method="POST">
+                        <form class="row" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -30,15 +30,15 @@
                                     <label  class="">Đường dẫn</label>
                                     <input name="slug" placeholder="Nhập ram" type="text" class="mb-2 form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label  class="">Logo</label>
-                                    <input name="logo" placeholder="Nhập ram" type="text" class="mb-2 form-control">
-                                </div>
-{{--                                <div class="position-relative form-group">--}}
-{{--                                    <label  class="">Logo thương hiệu</label>--}}
-{{--                                    <input name="file" id="exampleFile" type="file" class="form-control-file">--}}
-{{--                                    <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label  class="">Logo</label>--}}
+{{--                                    <input name="logo" placeholder="Nhập ram" type="text" class="mb-2 form-control">--}}
 {{--                                </div>--}}
+                                <div class="position-relative form-group">
+                                    <label  class="">Logo thương hiệu</label>
+                                    <input name="file" id="exampleFile" type="file" class="form-control-file">
+                                    <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
+                                </div>
                             </div>
 
                             <div class="col-md-12">
