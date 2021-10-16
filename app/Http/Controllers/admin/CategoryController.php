@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryAddRequest;
+use App\Http\Requests\CategoryEditRequest;
 use App\Models\admin\Category;
 use Illuminate\Http\Request;
 
@@ -24,12 +25,13 @@ class CategoryController extends Controller
             $file_name = $file->getClientOriginalName();
 
             $file->move(public_path('uploads'),$file_name);
+            $request->merge(['logo'=>$file_name]);
+
         }
         else{
             $file_name='';
         }
 
-        $request->merge(['logo'=>$file_name]);
         $category = Category::create($request->all());
         if ($category){
             return redirect()->route('admin.list-category');
@@ -39,13 +41,24 @@ class CategoryController extends Controller
         $category = Category::find($id);
         return view('admin.edit-category', compact('category'));
     }
-    public function update(Request $request, $id){
+
+    public function update(CategoryEditRequest $request, $id){
         $category = Category::find($id);
+
+        if ($request->hasFile('file')){
+            $file = $request->file('file');
+            $file_name = $file->getClientOriginalName();
+            $file->move(public_path('uploads'),$file_name);
+            $request->merge(['logo'=>$file_name]);
+
+        }
+
         $category->update($request->all());
         if ($category){
             return redirect()->route('admin.list-category');
         }
     }
+
     public function delete($id){
         $category = Category::find($id);
         $category->delete();

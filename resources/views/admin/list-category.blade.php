@@ -14,7 +14,7 @@
                         <th>Đường dẫn</th>
                         <th>Số sản phẩm</th>
                         <th>Trạng thái</th>
-                        <th>Hình ảnh</th>
+                        <th>Logo</th>
                         <th>Chức năng</th>
                     </tr>
                     </thead>
@@ -31,7 +31,9 @@
 {{--                        <td>An</td>--}}
 {{--                        @endif--}}
                         <td>{{$value->status == 1 ? 'Hien' : 'An'}}</td>
-                        <td>{{$value->logo}}</td>
+                        <td>
+                            <img style="width: 100px;" src="{{url('uploads')}}/{{$value->logo}}" alt="">
+                        </td>
                         <td>
                             <a href="{{route('admin.edit-category', $value->id)}}" class="mb-2 mr-2 btn btn-warning">Sửa</a>
                             <a href="{{route('admin.delete-category', $value->id)}}" class="mb-2 mr-2 btn btn-danger">Xóa</a>

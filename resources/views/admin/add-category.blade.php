@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label  class="">Đường dẫn</label>
-                                    <input name="slug" placeholder="Nhập ram" type="text" class="mb-2 form-control">
+                                    <input name="slug" placeholder="Nhập đường dẫn" type="text" class="mb-2 form-control">
                                 </div>
 {{--                                <div class="form-group">--}}
 {{--                                    <label  class="">Logo</label>--}}
