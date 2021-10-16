@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        $category = Category::all();
+        $category = Category::orderBy('created_at','DESC')->search()->paginate(2);
         return view('admin.list-category', compact('category'));
     }
 

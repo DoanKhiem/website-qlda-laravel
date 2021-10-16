@@ -18,4 +18,11 @@ class Category extends Model
     public function numberOfProducts(){
         return $this->hasMany(Product::class);
     }
+
+    public function scopeSearch($query){
+        if ($key = request()->key){
+            $query = $query->where('name','like','%'.$key.'%');
+        }
+        return $query;
+    }
 }
