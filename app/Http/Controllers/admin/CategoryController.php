@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryAddRequest;
 use App\Models\admin\Category;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function add(){
         return view('admin.add-category');
     }
-    public function create(Request $request){
+    public function create(CategoryAddRequest $request){
 //        dd($request->all());
         if ($request->hasFile('file')){
             $file = $request->file('file');
@@ -25,8 +26,9 @@ class CategoryController extends Controller
             $file->move(public_path('uploads'),$file_name);
         }
         else{
-            return "Bạn chưa chọn file";
+            $file_name='';
         }
+
         $request->merge(['logo'=>$file_name]);
         $category = Category::create($request->all());
         if ($category){

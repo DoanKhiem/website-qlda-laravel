@@ -14,6 +14,9 @@
                                 <div class="form-group">
                                     <label class="">Tên thương hiệu</label>
                                     <input name="name" placeholder="Nhập tên sản phảm" type="text" class="mb-2 form-control">
+                                    @if ($errors->has('name'))
+                                        <div class="mb-2 mr-2 badge badge-danger">{{$errors->first('name')}}</div>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label class="">Trạng thái</label>
@@ -37,6 +40,9 @@
                                 <div class="position-relative form-group">
                                     <label  class="">Logo thương hiệu</label>
                                     <input name="file" id="exampleFile" type="file" class="form-control-file">
+                                    @if ($errors->has('logo'))
+                                        <div class="mb-2 mr-2 badge badge-danger">{{$errors->first('logo')}}</div>
+                                    @endif
                                     <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
                                 </div>
                             </div>
