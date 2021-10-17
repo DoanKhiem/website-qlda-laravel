@@ -34,7 +34,7 @@ class CategoryController extends Controller
 
         $category = Category::create($request->all());
         if ($category){
-            return redirect()->route('admin.list-category');
+            return redirect()->route('admin.list-category')->with('success','Thêm mới thành công');
         }
     }
     public function edit($id){
@@ -59,10 +59,19 @@ class CategoryController extends Controller
         }
     }
 
-    public function delete($id){
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->back();
+    public function delete(Category $category, $id){
+
+        if ($category->numberOfProducts->count() > 0){
+            return redirect()->route('admin.list-category')->with('error','Không thể xóa danh mục này');
+        } else{
+//            dd($category);
+            $category = Category::find($id);
+            $category->delete();
+            return redirect()->route('admin.list-category')->with('success','Xóa danh mục này thành công');
+        }
+//        $category = Category::find($id);
+
+//        return redirect()->back();
 
     }
 }

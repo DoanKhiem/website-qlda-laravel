@@ -23,26 +23,27 @@
 <link href="{{ url('admin') }}/main.css" rel="stylesheet"></head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-        
+
         @include('admin.layouts.app-header')
 
         @include('admin.layouts.ui-theme-settings')
 
         <div class="app-main">
-                
+
             @include('admin.layouts.app-sidebar')
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    @include('admin.layouts.app-page-title') 
+                    @include('admin.layouts.app-page-title')
 
-                    
+
                     @yield('main')
 
 
                 </div>
                 @include('admin.layouts.app-wrapper-footer')
-            </div>   
+            </div>
         </div>
     </div>
 <script type="text/javascript" src="{{ url('admin') }}/scripts/main.js"></script></body>
+@yield('js')
 </html>

@@ -16,7 +16,7 @@ class Category extends Model
         'logo'
     ];
     public function numberOfProducts(){
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'category_id','id');
     }
 
     public function scopeSearch($query){

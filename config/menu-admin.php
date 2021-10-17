@@ -22,11 +22,11 @@ return [
         'items' => [
             [
                 'label' => 'Danh sách sản phẩm',
-                'route' => 'admin.list-product'
+                'route' => 'product.index'
             ],
             [
                 'label' => 'Thêm sản phẩm',
-                'route' => 'admin.add-product'
+                'route' => 'product.create'
             ]
         ]
     ],

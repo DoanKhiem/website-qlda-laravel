@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -47,13 +48,16 @@ Route::prefix('admin')->group(function(){
 
 
     // product
-    Route::get('/add-product', function () {
-        return view('admin.add-product');
-    })->name('admin.add-product');
-
-    Route::get('/list-product', function () {
-        return view('admin.list-product');
-    })->name('admin.list-product');
+    Route::resources([
+        'product' => ProductController::class
+    ]);
+//    Route::get('/add-product', function () {
+//        return view('admin.add-product');
+//    })->name('admin.add-product');
+//
+//    Route::get('/list-product', function () {
+//        return view('admin.list-product');
+//    })->name('admin.list-product');
 
     // color
     Route::get('/add-color', function () {

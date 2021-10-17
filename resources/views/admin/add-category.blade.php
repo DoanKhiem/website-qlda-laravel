@@ -40,8 +40,8 @@
                                 <div class="position-relative form-group">
                                     <label  class="">Logo thương hiệu</label>
                                     <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    @if ($errors->has('logo'))
-                                        <div class="mb-2 mr-2 badge badge-danger">{{$errors->first('logo')}}</div>
+                                    @if ($errors->has('file'))
+                                        <div class="mb-2 mr-2 badge badge-danger">{{$errors->first('file')}}</div>
                                     @endif
                                     <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
                                 </div>

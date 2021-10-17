@@ -36,7 +36,7 @@ $menu_admin = config('menu-admin');
                 </span>
             </button>
         </span>
-    </div>    
+    </div>
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
@@ -58,7 +58,7 @@ $menu_admin = config('menu-admin');
                     @foreach( $menu['items'] as $item )
                     <ul>
                         <li>
-                            <a href="{{ route($item['route']) }}" 
+                            <a href="{{ route($item['route']) }}"
                             class="@if($item['route'] == Route::current()->getName()) mm-active @endif">
                                 <i class="metismenu-icon"></i>
                                 {{ $item['label'] }}
@@ -68,7 +68,7 @@ $menu_admin = config('menu-admin');
                     @endforeach
                 </li>
                 @endforeach
-                
+
                 <!-- <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-car"></i>
@@ -77,13 +77,13 @@ $menu_admin = config('menu-admin');
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ route('admin.add-product') }}">
+                            <a href="{{ route('product.create') }}">
                                 <i class="metismenu-icon"></i>
                                 Thêm sản phảm
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.list-product') }}">
+                            <a href="{{ route('product.index') }}">
                                 <i class="metismenu-icon">
                                 </i>Danh sách sản phảm
                             </a>
@@ -249,7 +249,7 @@ $menu_admin = config('menu-admin');
                         <i class="metismenu-icon pe-7s-eyedropper">
                         </i>Forms Layouts
                     </a>
-                </li> -->               
+                </li> -->
             </ul>
         </div>
     </div>

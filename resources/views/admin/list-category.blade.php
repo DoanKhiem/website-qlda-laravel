@@ -1,7 +1,12 @@
 @extends('admin.layouts.master')
 
 @section('main')
-
+    @if(Session::has('error'))
+    <div class="mb-2 mr-2 badge badge-danger">{{Session::get('error')}}</div>
+    @endif
+    @if(Session::has('success'))
+    <div class="mb-2 mr-2 badge badge-success">{{Session::get('success')}}</div>
+    @endif
 <div class="row">
     <div class="col-lg-12">
         <div class="main-card mb-3 card">
@@ -35,18 +40,13 @@
                         <td>{{$value->name}}</td>
                         <td>{{$value->slug}}</td>
                         <td>{{$value->numberOfProducts->count()}}</td>
-{{--                        @if($value->status == 1)--}}
-{{--                        <td>Hien</td>--}}
-{{--                        @else--}}
-{{--                        <td>An</td>--}}
-{{--                        @endif--}}
                         <td>{{$value->status == 1 ? 'Hien' : 'An'}}</td>
                         <td>
                             <img style="width: 100px;" src="{{url('uploads')}}/{{$value->logo}}" alt="">
                         </td>
                         <td>
                             <a href="{{route('admin.edit-category', $value->id)}}" class="mb-2 mr-2 btn btn-warning">Sửa</a>
-                            <a href="{{route('admin.delete-category', $value->id)}}" class="mb-2 mr-2 btn btn-danger">Xóa</a>
+                            <a href="{{route('admin.delete-category', $value->id)}}" class="mb-2 mr-2 btn btn-danger btDelete">Xóa</a>
                             <!-- <button class="mb-2 mr-2 btn btn-light"><a target="_blank" href="{{ route('user.products') }}">View</a></button> -->
                         </td>
                     </tr>
@@ -63,4 +63,12 @@
     </div>
 </div>
 
+@endsection
+
+@section('js')
+{{--    $('.btDelete').click(function(ev){--}}
+{{--        ev.preventDefault();--}}
+{{--        var _href = $(this).attr('href');--}}
+{{--        alert(_href);--}}
+{{--    });--}}
 @endsection
