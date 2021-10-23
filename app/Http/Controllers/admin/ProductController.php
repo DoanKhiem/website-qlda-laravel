@@ -32,7 +32,7 @@ class ProductController extends Controller
     {
         $category = Category::orderBy('name', 'ASC')->select('id','name')->get();
         $brand = Brand::orderBy('name', 'ASC')->select('id','name')->get();
-        return view('admin.add-product', compact('category', 'brand'));
+        return view('admin.add-product', compact('category', 'brand'))->with('success','Thêm mới thành công');
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
         // dd($request->all());
         $product->update($request->all());
         if ($product){
-            return redirect()->route('product.index')->with('success','Sửa sản phẩm thành công');
+            return redirect()->route('product.index')->with('success',"Sửa sản phẩm $product->name thành công ");
         }
     }
 
@@ -115,7 +115,7 @@ class ProductController extends Controller
     {
         $product->delete();
         if ($product){
-            return redirect()->route('product.index')->with('success', 'Xóa sản phẩm thành công');
+            return redirect()->route('product.index')->with('success', "Xóa sản phẩm thành công $product->name");
         }
     }
 }

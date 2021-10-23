@@ -68,6 +68,7 @@
 @section('js')
     <script>
         $('.btDelete').click(function(ev){
+            //ko load lại page
             ev.preventDefault();
             var _href = $(this).attr('href');
             $('form#form-delete').attr('action',_href);

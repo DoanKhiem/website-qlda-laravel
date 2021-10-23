@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
 
 @section('main')
-    @if(Session::has('error'))
-    <div class="mb-2 mr-2 badge badge-danger">{{Session::get('error')}}</div>
+    @if(Session::has('errors'))
+    <div class="mb-2 mr-2 badge badge-danger">{{Session::get('errors')}}</div>
     @endif
     @if(Session::has('success'))
     <div class="mb-2 mr-2 badge badge-success">{{Session::get('success')}}</div>
@@ -34,8 +34,10 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @forelse($category as $value)
                     <tr>
+
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$value->name}}</td>
                         <td>{{$value->slug}}</td>
@@ -46,7 +48,7 @@
                         </td>
                         <td>
                             <a href="{{route('admin.edit-category', $value->id)}}" class="mb-2 mr-2 btn btn-warning">Sửa</a>
-                            <a href="{{route('admin.delete-category', $value->id)}}" class="mb-2 mr-2 btn btn-danger btDelete">Xóa</a>
+                            <a href="{{route('admin.delete-category', $value->id)}}" onclick="return confirm('Bạn có chắc muốn xóa {{$value->name}} không?')" class="mb-2 mr-2 btn btn-danger btDelete">Xóa</a>
                             <!-- <button class="mb-2 mr-2 btn btn-light"><a target="_blank" href="{{ route('user.products') }}">View</a></button> -->
                         </td>
                     </tr>
@@ -66,9 +68,5 @@
 @endsection
 
 @section('js')
-{{--    $('.btDelete').click(function(ev){--}}
-{{--        ev.preventDefault();--}}
-{{--        var _href = $(this).attr('href');--}}
-{{--        alert(_href);--}}
-{{--    });--}}
+
 @endsection

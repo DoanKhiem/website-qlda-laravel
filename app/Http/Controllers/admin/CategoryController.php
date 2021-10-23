@@ -35,6 +35,9 @@ class CategoryController extends Controller
         $category = Category::create($request->all());
         if ($category){
             return redirect()->route('admin.list-category')->with('success','Thêm mới thành công');
+        }else{
+            return redirect()->route('admin.list-category')->with('success','Thêm mới thất bại');
+
         }
     }
     public function edit($id){
@@ -55,21 +58,20 @@ class CategoryController extends Controller
 
         $category->update($request->all());
         if ($category){
-            return redirect()->route('admin.list-category');
+            return redirect()->route('admin.list-category')->with('success',"Sửa thành công danh mục $category->name");
         }
     }
 
-    public function delete(Category $category, $id){
+    public function delete($id){
+        $category = Category::find($id);
 
         if ($category->numberOfProducts->count() > 0){
-            return redirect()->route('admin.list-category')->with('error','Không thể xóa danh mục này');
+            return redirect()->route('admin.list-category')->with('errors',"Không thể xóa danh mục $category->name");
         } else{
-//            dd($category);
-            $category = Category::find($id);
             $category->delete();
-            return redirect()->route('admin.list-category')->with('success','Xóa danh mục này thành công');
+            return redirect()->route('admin.list-category')->with('success',"Xóa danh mục $category->name thành công");
         }
-//        $category = Category::find($id);
+
 
 //        return redirect()->back();
 

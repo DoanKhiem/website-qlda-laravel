@@ -32,7 +32,7 @@ $(function() {
 			$('#contact-form input[type="text"],#contact-form input[type="email"],#contact-form textarea').val('');
 		})
 		.fail(function(data) {
-			// Make sure that the formMessages div has the 'error' class.
+			// Make sure that the formMessages div has the 'errors' class.
 			$(formMessages).removeClass('success');
 			$(formMessages).addClass('error');
 
@@ -40,7 +40,7 @@ $(function() {
 			if (data.responseText !== '') {
 				$(formMessages).text(data.responseText);
 			} else {
-				$(formMessages).text('Oops! An error occured and your message could not be sent.');
+				$(formMessages).text('Oops! An errors occured and your message could not be sent.');
 			}
 		});
 	});
