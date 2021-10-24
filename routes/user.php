@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\user\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +25,9 @@ use Illuminate\Support\Facades\Route;
     })->name('user.about');
 
     // blog
-    Route::get('/blog', function () {
-        return view('user.blog');
-    })->name('user.blog');
+    Route::get('/blog', [HomeController::class , 'index'])->name('user.blog');
+    // blog-detail
+    Route::get('/blog-detail/{id}', [HomeController::class , 'blogDetail'])->name('user.blogDetail');
 
     // cart
     Route::get('/cart', function () {

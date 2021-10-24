@@ -32,7 +32,7 @@ class ProductController extends Controller
     {
         $category = Category::orderBy('name', 'ASC')->select('id','name')->get();
         $brand = Brand::orderBy('name', 'ASC')->select('id','name')->get();
-        return view('admin.add-product', compact('category', 'brand'))->with('success','Thêm mới thành công');
+        return view('admin.add-product', compact('category', 'brand'));
     }
 
     /**

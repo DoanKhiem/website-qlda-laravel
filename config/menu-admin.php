@@ -45,6 +45,20 @@ return [
         ]
     ],
     [
+        'label' => 'Blog',
+        'icon' => 'pe-7s-science',
+        'items' => [
+            [
+                'label' => 'Danh sách blog',
+                'route' => 'blog.index'
+            ],
+            [
+                'label' => 'Thêm blog',
+                'route' => 'blog.create'
+            ]
+        ]
+    ],
+    [
         'label' => 'Banner',
         'icon' => 'pe-7s-photo',
         'items' => [

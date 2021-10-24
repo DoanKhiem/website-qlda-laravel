@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +50,8 @@ Route::prefix('admin')->group(function(){
 
     // product
     Route::resources([
-        'product' => ProductController::class
+        'product' => ProductController::class,
+        'blog'=> BlogController::class
     ]);
 //    Route::get('/add-product', function () {
 //        return view('admin.add-product');
