@@ -5,7 +5,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\admin\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('admin')->group(function(){
+    Route::get('/index', [HomeController::class, 'index'])->name('admin.index');
+    Route::get('/login', [HomeController::class, 'login'])->name('admin.login');
+    Route::post('/login', [HomeController::class, 'loginPost'])->name('admin.loginPost');
+
+    Route::get('/register', [HomeController::class, 'register'])->name('admin.register');
+    Route::post('/register', [HomeController::class, 'registerPost'])->name('admin.registerPost');
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');

@@ -42,7 +42,7 @@ $menu_admin = config('menu-admin');
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Trang chủ</li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="{{route('admin.index')}}" class="mm-active">
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Thông tin shop
                     </a>

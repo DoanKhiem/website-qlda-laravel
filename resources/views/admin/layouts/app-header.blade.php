@@ -28,7 +28,7 @@
                 </span>
             </button>
         </span>
-    </div>    
+    </div>
     <div class="app-header__content">
         <div class="app-header-left">
             <div class="search-wrapper">
@@ -46,18 +46,18 @@
                     </a>
                 </li>
                 <li class="btn-group nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
+                    <a href="{{route('admin.register')}}" class="nav-link">
                         <i class="nav-link-icon fa fa-edit"></i>
-                        Projects
+                        Đăng ký
                     </a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
+                    <a href="{{route('admin.login')}}" class="nav-link">
                         <i class="nav-link-icon fa fa-cog"></i>
-                        Settings
+                        Đăng nhập
                     </a>
                 </li>
-            </ul>        
+            </ul>
         </div>
         <div class="app-header-right">
             <div class="header-btn-lg pr-0">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>

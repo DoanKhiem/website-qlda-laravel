@@ -16,4 +16,3 @@ use Illuminate\Support\Facades\Route;
 require_once('user.php');
 require_once('admin.php');
 
-

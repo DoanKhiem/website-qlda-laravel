@@ -51,7 +51,7 @@
                 <!-- Single Blog Sidebar Description Start -->
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="single-sidebar-desc mb-all-40">
-                        <div class="sidebar-img">
+                        <div class="">
                             <img src="{{url('uploads')}}/{{$blog->image}}" alt="single-blog-img">
                         </div>
                         <div class="sidebar-post-content">
@@ -68,18 +68,66 @@
                         <div class="blog-detail-contact">
                             <h3 class="mb-15 leave-reply">Bình luận</h3>
                             <div class="submit-review">
-                                <form>
+                                <form method="post">
+                                    <input type="hidden" value="{{$blog->id}}" name="blog_id">
                                     <div class="form-group">
                                         <label for="comment">Comment:</label>
                                         <textarea class="form-control" rows="5" id="comment"></textarea>
                                     </div>
                                     <div class="sbumit-reveiew">
-                                        <input value="Submit" class="return-customer-btn" type="submit">
+                                        <input value="Bình luận" class="return-customer-btn" type="submit">
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <!-- Contact Email Area End -->
+                        <div class="container  mt-5">
+                            <h3>Các bình luận</h3>
+                            <div class="media mt-2">
+                                <a class="mr-2 d-flex align-self-center" href="#">
+                                    <img style="width: 50px"
+                                        src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h5>Tên user</h5>
+                                    <p>Nội dung bình luận...</p>
+                                </div>
+                                <a href="">Trả lời</a>
+
+                            </div>
+                            <form method="post" style="display: none" class="mt-10">
+                                <input type="hidden" value="" name="blog_id">
+                                <div class="form-group">
+                                    <label for="comment">Trả lời:</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                                <div class="sbumit-reveiew">
+                                    <input value="Bình luận" class="return-customer-btn" type="submit">
+                                </div>
+                            </form>
+                            <div class="media mt-2 ml-20" >
+                                <a class="mr-2 d-flex align-self-center" href="#">
+                                    <img style="width: 50px"
+                                         src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h5>Tên user</h5>
+                                    <p>Nội dung bình luận...</p>
+                                </div>
+                                <a href="">Trả lời</a>
+
+                            </div>
+                            <form method="post" style="display: none" class="mt-10">
+                                <input type="hidden" value="" name="blog_id">
+                                <div class="form-group">
+                                    <label for="comment">Trả lời:</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                                <div class="sbumit-reveiew">
+                                    <input value="Bình luận" class="return-customer-btn" type="submit">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <!-- Single Blog Sidebar Description End -->
