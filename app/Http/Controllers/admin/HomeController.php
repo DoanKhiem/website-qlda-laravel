@@ -36,7 +36,7 @@ class HomeController extends Controller
 //        dd($request->all());
         $request->merge(['password'=>bcrypt($request->pasword)]);
 //        dd($request->all());
-        User::create(($request->all()));
+        User::create($request->all());
         return redirect()->route('admin.index')->with('success','Thêm mới thành công');
 
     }
