@@ -11,7 +11,7 @@ class IssueController extends Controller
      */
     public function index()
     {
-        //
+        return view('issues.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        //
+        return view('issues.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class IssueController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('issues.edit');
     }
 
     /**

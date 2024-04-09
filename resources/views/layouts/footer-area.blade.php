@@ -1,5 +1,5 @@
 <footer>
     <div class="footer-area">
-        <p>Website phòng khám nha khoa by <a href="#">Nguyễn Thu Diệu</a>.</p>
+        <p>Website quản lý dự án by <a href="#">Nguyễn Mai Hương</a>.</p>
     </div>
 </footer>

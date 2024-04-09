@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('works', WorkController::class);
 
-    Route::get('users', [ProfileController::class, 'users'])->name('user.index');
-    Route::get('users-create', [ProfileController::class, 'create'])->name('user.create');
+    Route::get('/users', [ProfileController::class, 'users'])->name('user.index');
+    Route::get('/users/create', [ProfileController::class, 'create'])->name('user.create');
 });
 
 require __DIR__.'/auth.php';

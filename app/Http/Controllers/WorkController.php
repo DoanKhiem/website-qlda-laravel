@@ -11,7 +11,7 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        return view('works.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class WorkController extends Controller
      */
     public function create()
     {
-        //
+        return view('works.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class WorkController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('works.edit');
     }
 
     /**

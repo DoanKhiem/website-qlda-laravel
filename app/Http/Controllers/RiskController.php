@@ -11,7 +11,7 @@ class RiskController extends Controller
      */
     public function index()
     {
-        //
+        return view('risks.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class RiskController extends Controller
      */
     public function create()
     {
-        //
+        return view('risks.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class RiskController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('risks.edit');
     }
 
     /**

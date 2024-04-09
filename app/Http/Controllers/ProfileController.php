@@ -60,11 +60,11 @@ class ProfileController extends Controller
 
     public function users()
     {
-
+        return view('users.index');
     }
 
     public function create()
     {
-
+        return view('users.create');
     }
 }
