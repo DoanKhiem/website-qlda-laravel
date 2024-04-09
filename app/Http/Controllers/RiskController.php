@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Risk;
 use Illuminate\Http\Request;
 
 class RiskController extends Controller
@@ -11,7 +12,8 @@ class RiskController extends Controller
      */
     public function index()
     {
-        return view('risks.index');
+        $datas = Risk::orderBy('created_at', 'desc')->get();
+        return view('risks.index', compact('datas'));
     }
 
     /**

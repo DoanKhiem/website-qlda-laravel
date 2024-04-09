@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Issue;
 use Illuminate\Http\Request;
 
 class IssueController extends Controller
@@ -11,7 +12,8 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('issues.index');
+        $datas = Issue::orderBy('created_at', 'desc')->get();
+        return view('issues.index', compact('datas'));
     }
 
     /**
