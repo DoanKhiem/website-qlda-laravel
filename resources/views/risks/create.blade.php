@@ -1,30 +1,36 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="main-content-inner">
-        <div class="container">
-            <div class="row">
-                <!-- Textual inputs start -->
-                <div class="col-12 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title">Textual inputs</h4>
-                            <p class="text-muted font-14 mb-4">Here are examples of <code>.form-control</code> applied to each textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
+<div class="main-content-inner">
+    <div class="container">
+        <div class="row">
+            <!-- Textual inputs start -->
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Textual inputs</h4>
+                        <form action="{{route('risks.create')}}" method="POST">
+                            @csrf
+                            <p class="text-muted font-14 mb-4">Here are examples of <code>.form-control</code> applied
+                                to each textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                             <div class="form-group">
                                 <label for="example-text-input" class="col-form-label">Text</label>
                                 <input class="form-control" type="text" value="Carlos Rath" id="example-text-input">
                             </div>
                             <div class="form-group">
                                 <label for="example-search-input" class="col-form-label">Search</label>
-                                <input class="form-control" type="search" value="Where is google office" id="example-search-input">
+                                <input class="form-control" type="search" value="Where is google office"
+                                    id="example-search-input">
                             </div>
                             <div class="form-group">
                                 <label for="example-email-input" class="col-form-label">Email</label>
-                                <input class="form-control" type="email" value="name@example.com" id="example-email-input">
+                                <input class="form-control" type="email" value="name@example.com"
+                                    id="example-email-input">
                             </div>
                             <div class="form-group">
                                 <label for="example-url-input" class="col-form-label">URL</label>
-                                <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+                                <input class="form-control" type="url" value="https://getbootstrap.com"
+                                    id="example-url-input">
                             </div>
                             <div class="form-group">
                                 <label for="example-tel-input" class="col-form-label">Telephone</label>
@@ -32,7 +38,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword" class="">Password</label>
-                                <input type="password" class="form-control" id="inputPassword" value="inputPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="inputPassword" value="inputPassword"
+                                    placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <label for="example-number-input" class="col-form-label">Number</label>
@@ -40,7 +47,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="example-datetime-local-input" class="col-form-label">Date and time</label>
-                                <input class="form-control" type="datetime-local" value="2018-07-19T15:30:00" id="example-datetime-local-input">
+                                <input class="form-control" type="datetime-local" value="2018-07-19T15:30:00"
+                                    id="example-datetime-local-input">
                             </div>
                             <div class="form-group">
                                 <label for="example-date-input" class="col-form-label">Date</label>
@@ -77,35 +85,43 @@
                             </div>
                             <div class="form-group">
                                 <label for="example-text-input-lg" class="col-form-label">Large</label>
-                                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" id="example-text-input-lg">
+                                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
+                                    id="example-text-input-lg">
                             </div>
                             <div class="form-group">
                                 <label for="example-text-input-sm" class="col-form-label">Small</label>
-                                <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="example-text-input-sm">
+                                <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm"
+                                    id="example-text-input-sm">
                             </div>
                             <div class="form-group has-primary">
                                 <label for="inputHorizontalPrimary" class="col-form-label">Email</label>
-                                <input type="email" class="form-control form-control-primary" id="inputHorizontalPrimary" placeholder="name@example.com">
+                                <input type="email" class="form-control form-control-primary"
+                                    id="inputHorizontalPrimary" placeholder="name@example.com">
                                 <div class="form-control-feedback">Primary! You've done it.</div>
                                 <small class="form-text text-muted">Example help text that remains unchanged.</small>
                             </div>
                             <div class="form-group has-warning">
                                 <label for="inputHorizontalWarning" class="col-form-label">Email</label>
-                                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                                <input type="email" class="form-control form-control-warning"
+                                    id="inputHorizontalWarning" placeholder="name@example.com">
                                 <div class="form-control-feedback">Shucks, check the formatting of that and try again.
                                 </div><small class="form-text text-muted">Example help text that remains unchanged.
                                 </small>
                             </div>
                             <div class="form-group mb-0 has-danger">
                                 <label for="inputHorizontalDnger" class="col-form-label">Email</label>
-                                <input type="email" class="form-control form-control-danger" id="inputHorizontalDnger" placeholder="name@example.com">
-                                <div class="form-control-feedback">Sorry, that username's taken. Try another?</div><small class="form-text text-muted">Example help text that remains unchanged.</small>
+                                <input type="email" class="form-control form-control-danger" id="inputHorizontalDnger"
+                                    placeholder="name@example.com">
+                                <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+                                <small class="form-text text-muted">Example help text that remains unchanged.</small>
                             </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                        </form>
                     </div>
                 </div>
-                <!-- Textual inputs end -->
             </div>
+            <!-- Textual inputs end -->
         </div>
     </div>
+</div>
 @endsection
