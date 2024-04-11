@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -68,5 +69,28 @@ class ProfileController extends Controller
     public function create()
     {
         return view('users.create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'code' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'position' => ['required', 'integer'],
+        ]);
+
+        $status = User::create([
+            'code' => $request->code,
+            'position' => $request->position,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make(12345678),
+        ]);
+
+        if ($status) {
+            return redirect()->route('users.index')->with('success', 'Thêm mới nhân viên thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới nhân viên');
+        }
     }
 }
