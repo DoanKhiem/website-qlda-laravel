@@ -23,19 +23,19 @@
                             @csrf
                             <p class="text-muted font-14 mb-4">Nhập thông tin dự án</p>
                             <div class="form-group">
-                                <label for="example-text-input" class="col-form-label" required>Mã dự án</label>
+                                <label for="example-text-input" class="col-form-label">Mã dự án</label>
                                 <input class="form-control" name="code" type="text" value="{{old('code')}}" required>
                             </div>
                             <div class="form-group">
-                                <label for="example-search-input" class="col-form-label" required>Tên dự án</label>
+                                <label for="example-search-input" class="col-form-label">Tên dự án</label>
                                 <input class="form-control" name="name" type="text" value="{{old('name')}}" required>
                             </div>
                             <div class="form-group">
-                                <label for="example-email-input" class="col-form-label" required>Thời gian bắt đầu</label>
+                                <label for="example-email-input" class="col-form-label">Thời gian bắt đầu</label>
                                 <input class="form-control" name="start_date" type="date" value="{{old('start_date')}}" required>
                             </div>
                             <div class="form-group">
-                                <label for="example-url-input" class="col-form-label" required>Thời gian kết thúc</label>
+                                <label for="example-url-input" class="col-form-label">Thời gian kết thúc</label>
                                 <input class="form-control" name="end_date" type="date" value="{{old('end_date')}}" required>
                             </div>
                             <div class="form-group">
