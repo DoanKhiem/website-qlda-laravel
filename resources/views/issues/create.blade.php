@@ -56,7 +56,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label">Trạng thái</label>
+                                <label class="col-form-label">Mô tả</label>
                                 <textarea class="form-control" name="description" aria-label="With textarea">{{old('description')}}</textarea>
                             </div>
 

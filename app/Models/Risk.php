@@ -12,8 +12,7 @@ class Risk extends Model
     protected $fillable = [
         'code',
         'name',
-        'description',
+        'note',
         'project_id',
-        'status',
     ];
 }

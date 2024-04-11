@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Risk;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class RiskController extends Controller
      */
     public function create()
     {
-        return view('risks.create');
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('risks.create', compact('projects'));
     }
 
     /**
@@ -29,7 +31,19 @@ class RiskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'code' => 'required|unique:risks',
+            'name' => 'required',
+            'note' => 'required',
+            'project_id' => 'required',
+        ]);
+        $data = $request->all();
+        $status = Risk::create($data);
+        if ($status) {
+            return redirect()->route('risks.index')->with('success', 'Thêm mới rủi ro thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới rủi ro');
+        }
     }
 
     /**
