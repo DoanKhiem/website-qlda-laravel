@@ -6,6 +6,7 @@
             <div class="row">
                 <!-- Primary table start -->
                 <div class="col-12 mt-5">
+                    @include('layouts.notification')
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title">Danh sách vấn đề</h4>

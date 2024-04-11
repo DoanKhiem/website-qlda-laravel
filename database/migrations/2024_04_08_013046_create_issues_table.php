@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('status');
-            $table->foreignId('work_id')->constrained();
+            $table->foreignId('project_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->text('description')->nullable();
             $table->timestamps();
