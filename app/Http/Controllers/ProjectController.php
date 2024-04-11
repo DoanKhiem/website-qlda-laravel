@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -21,7 +22,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('projects.create', compact('users'));
     }
 
     /**
@@ -29,7 +31,22 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'code' => 'required|unique:projects',
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'status' => 'required',
+            'user_id' => 'required'
+        ]);
+        $data = $request->all();
+        $status = Project::create($data);
+        if ($status) {
+            $status->users()->sync($request->user_id);
+            return redirect()->route('projects.index')->with('success', 'Thêm mới dự án thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới dự án');
+        }
     }
 
     /**
