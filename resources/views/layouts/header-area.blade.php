@@ -39,8 +39,8 @@
                             <li>
                                 <a href="javascript:void(0)"><i class="ti-layout-sidebar-left"></i><span>Nhân viên</span></a>
                                 <ul class="submenu">
-                                    <li><a href="{{route('user.index')}}">Danh sách nhân viên</a></li>
-                                    <li><a href="{{route('user.create')}}">Thêm nhân viên</a></li>
+                                    <li><a href="{{route('users.index')}}">Danh sách nhân viên</a></li>
+                                    <li><a href="{{route('users.create')}}">Thêm nhân viên</a></li>
                                 </ul>
                             </li>
                             <li>

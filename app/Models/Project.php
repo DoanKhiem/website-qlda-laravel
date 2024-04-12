@@ -16,4 +16,9 @@ class Project extends Model
         'end_date',
         'status',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_project', 'project_id', 'user_id');
+    }
 }

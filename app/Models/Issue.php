@@ -14,6 +14,7 @@ class Issue extends Model
         'name',
         'description',
         'project_id',
+        'user_id',
         'status',
     ];
 }

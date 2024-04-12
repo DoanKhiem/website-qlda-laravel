@@ -39,8 +39,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('works', WorkController::class);
 
-    Route::get('/users', [ProfileController::class, 'users'])->name('user.index');
-    Route::get('/users/create', [ProfileController::class, 'create'])->name('user.create');
+    Route::get('/users', [ProfileController::class, 'users'])->name('users.index');
+    Route::get('/users/create', [ProfileController::class, 'create'])->name('users.create');
+    Route::post('/users/store', [ProfileController::class, 'store'])->name('users.store');
 });
 
 require __DIR__.'/auth.php';

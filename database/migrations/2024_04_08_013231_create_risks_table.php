@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->foreignId('project_id')->constrained();
-            $table->text('description')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

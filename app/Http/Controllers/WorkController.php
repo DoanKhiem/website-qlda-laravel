@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\User;
 use App\Models\Work;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,9 @@ class WorkController extends Controller
      */
     public function create()
     {
-        return view('works.create');
+        $users = User::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('works.create', compact('users', 'projects'));
     }
 
     /**
@@ -29,7 +33,22 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'code' => 'required|unique:works',
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'project_id' => 'required',
+            'user_id' => 'required',
+            'status' => 'required'
+        ]);
+        $data = $request->all();
+        $status = Work::create($data);
+        if ($status) {
+            return redirect()->route('works.index')->with('success', 'Thêm mới công việc thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới công việc');
+        }
     }
 
     /**
