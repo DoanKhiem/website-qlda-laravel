@@ -75,7 +75,27 @@ class WorkController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Work::findOrFail($id);
+        if($item) {
+            $this->validate($request, [
+                'code' => 'required|unique:works,' . $id,
+                'name' => 'required',
+                'start_date' => 'required',
+                'end_date' => 'required',
+                'project_id' => 'required',
+                'user_id' => 'required',
+                'status' => 'required'
+            ]);
+            $data = $request->all();
+            $status = $item->update($data);
+            if ($status) {
+                return redirect()->route('works.index')->with('success', 'Cập nhật công việc thành công');
+            } else {
+                return back()->with('error', 'Lỗi cập nhật công việc');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại công việc này!');
+        }
     }
 
     /**
