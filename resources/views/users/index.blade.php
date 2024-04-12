@@ -14,23 +14,37 @@
                                 <table id="dataTable2" class="text-center">
                                     <thead class="text-capitalize">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start Date</th>
-                                        <th>salary</th>
+                                        <th>STT</th>
+                                        <th>Mã nhân viên</th>
+                                        <th>Tên nhân viên</th>
+                                        <th>Email</th>
+                                        <th>Chức vụ</th>
+                                        <th>Chức năng</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($datas as $data)
                                         <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            <td>{{ $data->code }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->position }}</td>
+                                            <td>
+                                                <a href="{{route('users.edit', $data->id)}}">
+                                                    <button class="btn btn-rounded btn-warning btn-xs mb-3" type="button"
+                                                            value="Input"><i class="fa fa-edit"></i></button>
+                                                </a>
+                                                <form action="{{route('users.destroy', $data->id)}}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="deleteBtn btn btn-rounded btn-danger btn-xs mb-3" type="button"
+                                                            value="Reset"><i class="fa fa-trash"></i></button>
+                                                </form>
+
+                                            </td>
+                                            <td></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

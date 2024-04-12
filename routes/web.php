@@ -42,6 +42,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [ProfileController::class, 'users'])->name('users.index');
     Route::get('/users/create', [ProfileController::class, 'create'])->name('users.create');
     Route::post('/users/store', [ProfileController::class, 'store'])->name('users.store');
+
+    Route::get('/users/edit/{id}', [ProfileController::class, 'editUser'])->name('users.edit');
+    Route::post('/users/update/{id}', [ProfileController::class, 'updateUser'])->name('users.update');
+
+    Route::delete('/users/destroy/{id}', [ProfileController::class, 'destroy'])->name('users.destroy');
 });
 
 require __DIR__.'/auth.php';
