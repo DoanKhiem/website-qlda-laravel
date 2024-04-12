@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Textual inputs</h4>
-                        <form action="{{route('project.update', $item->id)}}" method="POST">
+                        <form action="{{route('risks.update', $item->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <p class="text-muted font-14 mb-4">Here are examples of <code>.form-control</code> applied

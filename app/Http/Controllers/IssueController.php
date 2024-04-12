@@ -62,7 +62,8 @@ class IssueController extends Controller
      */
     public function edit(string $id)
     {
-        return view('issues.edit');
+        $item = Issue::findOrFail($id);
+        return view('issues.edit', compact('item'));
     }
 
     /**

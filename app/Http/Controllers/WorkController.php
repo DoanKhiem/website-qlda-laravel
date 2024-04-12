@@ -64,7 +64,8 @@ class WorkController extends Controller
      */
     public function edit(string $id)
     {
-        return view('works.edit');
+        $item = Work::findOrFail($id);
+        return view('works.edit', compact('item'));
     }
 
     /**

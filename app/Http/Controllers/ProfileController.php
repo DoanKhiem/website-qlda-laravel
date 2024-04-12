@@ -93,4 +93,10 @@ class ProfileController extends Controller
             return back()->with('error', 'Lỗi thêm mới nhân viên');
         }
     }
+
+    public function editUser(string $id)
+    {
+        $item = User::findOrFail($id);
+        return view('users.edit', compact('item'));
+    }
 }
