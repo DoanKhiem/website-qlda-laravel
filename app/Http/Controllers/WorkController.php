@@ -103,6 +103,16 @@ class WorkController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Work::findOrFail($id);
+        if ($item) {
+            $status = $item->delete();
+            if ($status) {
+                return redirect()->route('works.index')->with('success', 'Xóa công việc thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa công việc!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại công việc này!');
+        }
     }
 }

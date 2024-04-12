@@ -100,6 +100,16 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Project::findOrFail($id);
+        if ($item) {
+            $status = $item->delete();
+            if ($status) {
+                return redirect()->route('projects.index')->with('success', 'Xóa dự án thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa dự án!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại dự án này!');
+        }
     }
 }
