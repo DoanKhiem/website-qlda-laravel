@@ -63,7 +63,8 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $item = Project::findOrFail($id);
-        return view('projects.edit', compact('item'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('projects.edit', compact('item', 'users'));
     }
 
     /**

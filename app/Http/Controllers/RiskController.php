@@ -60,7 +60,8 @@ class RiskController extends Controller
     public function edit(string $id)
     {
         $item = Risk::findOrFail($id);
-        return view('risks.edit', compact('item'));
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('risks.edit', compact('item', 'projects'));
     }
 
     /**

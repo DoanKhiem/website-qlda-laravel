@@ -65,7 +65,9 @@ class WorkController extends Controller
     public function edit(string $id)
     {
         $item = Work::findOrFail($id);
-        return view('works.edit', compact('item'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('works.edit', compact('item', 'users', 'projects'));
     }
 
     /**

@@ -63,7 +63,9 @@ class IssueController extends Controller
     public function edit(string $id)
     {
         $item = Issue::findOrFail($id);
-        return view('issues.edit', compact('item'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('issues.edit', compact('item', 'users', 'projects'));
     }
 
     /**
