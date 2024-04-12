@@ -30,6 +30,7 @@
 <!-- page container area end -->
 
 @include('layouts.footer')
+@yield('script')
 </body>
 
 </html>

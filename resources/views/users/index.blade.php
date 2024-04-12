@@ -35,7 +35,13 @@
                                             <td>{{ $data->code }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->email }}</td>
-                                            <td>{{ $data->position }}</td>
+                                            <td>
+                                                @if($data->position == 0)
+                                                    <span class="badge badge-primary" style="font-size: 12px">Nhân viên</span>
+                                                @elseif($data->position == 1)
+                                                    <span class="badge badge-success" style="font-size: 12px">Quản lý</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{route('users.edit', $data->id)}}">
                                                     <button class="btn btn-rounded btn-warning btn-xs mb-3" type="button"
