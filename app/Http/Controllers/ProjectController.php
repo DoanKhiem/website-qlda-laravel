@@ -75,7 +75,7 @@ class ProjectController extends Controller
         $item = Project::findOrFail($id);
         if($item) {
             $this->validate($request, [
-                'code' => 'required|unique:projects,' . $id,
+                'code' => 'required|unique:projects,code,' . $id,
                 'name' => 'required',
                 'start_date' => 'required',
                 'end_date' => 'required',

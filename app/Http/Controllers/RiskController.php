@@ -72,7 +72,7 @@ class RiskController extends Controller
         $item = Risk::findOrFail($id);
         if($item) {
             $this->validate($request, [
-                'code' => 'required|unique:risks,' . $id,
+                'code' => 'required|unique:risks,code,' . $id,
                 'name' => 'required',
                 'note' => 'required',
                 'project_id' => 'required',

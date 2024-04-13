@@ -37,15 +37,15 @@
                             <div class="form-group">
                                 <label for="example-url-input" class="col-form-label text-muted mb-3 mt-4 d-block">Chức vụ</label>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" name="position" value="1" class="custom-control-input">
+                                    <input type="radio" id="customRadio4" name="position" value="1" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio4">Quản lý</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" checked name="position" value="0" class="custom-control-input">
+                                    <input type="radio" checked id="customRadio5" name="position" value="0" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio5">Nhân viên</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Thêm mới</button>
                         </form>
                     </div>
                 </div>

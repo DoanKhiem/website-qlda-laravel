@@ -56,7 +56,7 @@
                                     <option value="4">Quá hạn</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Thêm mới</button>
                         </form>
                     </div>
                 </div>

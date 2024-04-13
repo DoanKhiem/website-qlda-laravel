@@ -6,6 +6,16 @@
         <div class="row">
             <!-- Textual inputs start -->
             <div class="col-12 mt-5">
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{$error}}!</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span class="fa fa-times"></span>
+                            </button>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Sửa thông tin rủi ro</h4>

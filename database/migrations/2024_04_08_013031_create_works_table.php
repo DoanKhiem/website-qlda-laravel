@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('status');
-            $table->foreignId('project_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
