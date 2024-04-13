@@ -8,10 +8,10 @@
     Version: 1.0
 
 ----------------------------------------------
-    
+
     CSS INDEX
     ===================
-  
+
     1. Core Css
     2. Dashboard One
         2.1 Sidebar Menu
@@ -259,7 +259,7 @@
 }
 
 .mainheader-area {
-    background: #fff;
+    background: #2c2c2c;
     border-bottom: 1px solid #f3f8fb;
     padding-left: 15px;
     position: relative;

@@ -6,6 +6,16 @@
         <div class="row">
             <!-- Textual inputs start -->
             <div class="col-12 mt-5">
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{$error}}!</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span class="fa fa-times"></span>
+                            </button>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Sửa thông tin nhân viên</h4>
@@ -28,15 +38,16 @@
                             <div class="form-group">
                                 <label for="example-url-input" class="col-form-label text-muted mb-3 mt-4 d-block">Chức vụ</label>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" name="position" {{$item->position == 1 ? "checked" : ""}} value="1" class="custom-control-input">
+                                    <input type="radio" {{$item->position == 1 ? "checked" : ""}} id="customRadio4" name="position" value="1" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio4">Quản lý</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" {{$item->position == 0 ? "checked" : ""}} name="position" value="0" class="custom-control-input">
+                                    <input type="radio" {{$item->position == 0 ? "checked" : ""}} id="customRadio5" name="position" value="0" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio5">Nhân viên</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Sửa thông tin</button>
                         </form>
                     </div>
                 </div>

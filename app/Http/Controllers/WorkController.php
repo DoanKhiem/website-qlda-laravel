@@ -78,7 +78,7 @@ class WorkController extends Controller
         $item = Work::findOrFail($id);
         if($item) {
             $this->validate($request, [
-                'code' => 'required|unique:works,' . $id,
+                'code' => 'required|unique:works,code,' . $id,
                 'name' => 'required',
                 'start_date' => 'required',
                 'end_date' => 'required',

@@ -76,7 +76,7 @@ class IssueController extends Controller
         $item = Issue::findOrFail($id);
         if($item) {
             $this->validate($request, [
-                'code' => 'required|unique:issues,' . $id,
+                'code' => 'required|unique:issues,code,' . $id,
                 'name' => 'required',
                 'project_id' => 'required',
                 'user_id' => 'required',
