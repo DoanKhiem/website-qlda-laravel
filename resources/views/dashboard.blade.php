@@ -29,10 +29,10 @@
                         <div class="card">
                             <div class="seo-fact sbg1">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-thumb-up"></i> Likes</div>
+                                    <div class="seofct-icon"><i class="fa fa-group"></i> Nhân viên</div>
                                     <h2>2,315</h2>
                                 </div>
-                                <canvas id="seolinechart1" height="50"></canvas>
+{{--                                <canvas id="seolinechart1" height="50"></canvas>--}}
                             </div>
                         </div>
                     </div>
@@ -40,10 +40,10 @@
                         <div class="card">
                             <div class="seo-fact sbg2">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> Share</div>
+                                    <div class="seofct-icon"><i class="fa fa-archive"></i> Dự án</div>
                                     <h2>3,984</h2>
                                 </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
+{{--                                <canvas id="seolinechart2" height="50"></canvas>--}}
                             </div>
                         </div>
                     </div>
@@ -51,8 +51,9 @@
                         <div class="card">
                             <div class="seo-fact sbg3">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon">Impressions</div>
-                                    <canvas id="seolinechart3" height="60"></canvas>
+                                    <div class="seofct-icon"><i class="ti-pie-chart"></i> Vấn đề</div>
+                                    <h2>3,984</h2>
+{{--                                    <canvas id="seolinechart3" height="60"></canvas>--}}
                                 </div>
                             </div>
                         </div>
@@ -61,8 +62,9 @@
                         <div class="card">
                             <div class="seo-fact sbg4">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon">New Users</div>
-                                    <canvas id="seolinechart4" height="60"></canvas>
+                                    <div class="seofct-icon"><i class="fa fa-warning"></i> Rủi ro</div>
+                                    <h2>3,984</h2>
+{{--                                    <canvas id="seolinechart4" height="60"></canvas>--}}
                                 </div>
                             </div>
                         </div>
@@ -76,7 +78,7 @@
             <div class="col-lg-4 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Advertising & Marketing</h4>
+                        <h4 class="header-title">BCTK Tiến độ dự án</h4>
                         <canvas id="seolinechart-custom-1" height="233"></canvas>
                     </div>
                 </div>
@@ -87,7 +89,7 @@
             <div class="col-lg-4 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Advertising & Marketing</h4>
+                        <h4 class="header-title">BCTK Tiến độ công việc</h4>
                         <canvas id="seolinechart-custom-2" height="233"></canvas>
                     </div>
                 </div>
@@ -98,7 +100,7 @@
             <div class="col-lg-4 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Advertising & Marketing</h4>
+                        <h4 class="header-title">BCTK Tiến độ vấn đề</h4>
                         <canvas id="seolinechart-custom-3" height="233"></canvas>
                     </div>
                 </div>

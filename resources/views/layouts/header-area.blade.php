@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="index.html"><img src="{{asset('assets/images/icon/logo2.png')}}" alt="logo"></a>
+                    <a href="index.html"><img src="{{asset('assets/images/icon/logo-home.svg')}}" alt="logo"></a>
                 </div>
             </div>
             <!-- profile info & task notification -->
@@ -14,9 +14,12 @@
                         <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <i
                                 class="fa fa-angle-down"></i></h4>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Message</a>
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Log Out</a>
+{{--                            <a class="dropdown-item" href="#">Message</a>--}}
+{{--                            <a class="dropdown-item" href="#">Settings</a>--}}
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            <button type="submit" class="dropdown-item" >Log Out</button>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -37,21 +40,21 @@
                                 <a href="{{route('dashboard')}}"><i class="ti-dashboard"></i><span>dashboard</span></a>
                             </li>
                             <li class="{{ Str::startsWith(Route::currentRouteName(), ['users']) ? 'active' : '' }}">
-                                <a href="javascript:void(0)"><i class="ti-layout-sidebar-left"></i><span>Nhân viên</span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-group"></i><span>Nhân viên</span></a>
                                 <ul class="submenu">
                                     <li><a href="{{route('users.index')}}">Danh sách nhân viên</a></li>
                                     <li><a href="{{route('users.create')}}">Thêm nhân viên</a></li>
                                 </ul>
                             </li>
                             <li class="{{ Str::startsWith(Route::currentRouteName(), ['projects']) ? 'active' : '' }}">
-                                <a href="javascript:void(0)"><i class="ti-pie-chart"></i><span>Dự án</span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-archive"></i><span>Dự án</span></a>
                                 <ul class="submenu">
                                     <li><a href="{{route('projects.index')}}">Danh sách dự án</a></li>
                                     <li><a href="{{route('projects.create')}}">Thêm dự án</a></li>
                                 </ul>
                             </li>
                             <li class="{{ Str::startsWith(Route::currentRouteName(), ['works']) ? 'active' : '' }}">
-                                <a href="javascript:void(0)"><i class="ti-pie-chart"></i><span>Công việc</span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-briefcase"></i><span>Công việc</span></a>
                                 <ul class="submenu">
                                     <li><a href="{{route('works.index')}}">Danh sách công việc</a></li>
                                     <li><a href="{{route('works.create')}}">Thêm công việc</a></li>
@@ -65,7 +68,7 @@
                                 </ul>
                             </li>
                             <li class="{{ Str::startsWith(Route::currentRouteName(), ['risks']) ? 'active' : '' }}">
-                                <a href="javascript:void(0)"><i class="ti-pie-chart"></i><span>Rủi ro</span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-warning"></i><span>Rủi ro</span></a>
                                 <ul class="submenu">
                                     <li><a href="{{route('risks.index')}}">Danh sách rủi ro</a></li>
                                     <li><a href="{{route('risks.create')}}">Thêm rủi ro</a></li>
