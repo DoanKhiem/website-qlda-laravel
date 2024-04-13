@@ -73,7 +73,25 @@ class IssueController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Issue::findOrFail($id);
+        if($item) {
+            $this->validate($request, [
+                'code' => 'required|unique:issues,' . $id,
+                'name' => 'required',
+                'project_id' => 'required',
+                'user_id' => 'required',
+                'status' => 'required'
+            ]);
+            $data = $request->all();
+            $status = $item->update($data);
+            if ($status) {
+                return redirect()->route('issues.index')->with('success', 'Cập nhật vấn đề thành công');
+            } else {
+                return back()->with('error', 'Lỗi cập nhật vấn đề');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại vấn đề này!');
+        }
     }
 
     /**
@@ -81,6 +99,16 @@ class IssueController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Issue::findOrFail($id);
+        if ($item) {
+            $status = $item->delete();
+            if ($status) {
+                return redirect()->route('issues.index')->with('success', 'Xóa vấn đề thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa vấn đề!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại vấn đề này!');
+        }
     }
 }

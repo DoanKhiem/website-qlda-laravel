@@ -69,7 +69,24 @@ class RiskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Risk::findOrFail($id);
+        if($item) {
+            $this->validate($request, [
+                'code' => 'required|unique:risks,' . $id,
+                'name' => 'required',
+                'note' => 'required',
+                'project_id' => 'required',
+            ]);
+            $data = $request->all();
+            $status = $item->update($data);
+            if ($status) {
+                return redirect()->route('risks.index')->with('success', 'Cập nhật rủi ro thành công');
+            } else {
+                return back()->with('error', 'Lỗi cập nhật rủi ro');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại rủi ro này!');
+        }
     }
 
     /**
@@ -77,6 +94,16 @@ class RiskController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Risk::findOrFail($id);
+        if ($item) {
+            $status = $item->delete();
+            if ($status) {
+                return redirect()->route('risks.index')->with('success', 'Xóa rủi ro thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa rủi ro!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại rủi ro này!');
+        }
     }
 }

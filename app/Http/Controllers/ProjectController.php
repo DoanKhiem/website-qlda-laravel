@@ -72,7 +72,27 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Project::findOrFail($id);
+        if($item) {
+            $this->validate($request, [
+                'code' => 'required|unique:projects,' . $id,
+                'name' => 'required',
+                'start_date' => 'required',
+                'end_date' => 'required',
+                'status' => 'required',
+                'user_id' => 'required'
+            ]);
+            $data = $request->all();
+            $status = $item->update($data);
+            if ($status) {
+                $item->users()->sync($request->user_id);
+                return redirect()->route('projects.index')->with('success', 'Cập nhật dự án thành công');
+            } else {
+                return back()->with('error', 'Lỗi cập nhật dự án');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại dự án này!');
+        }
     }
 
     /**
@@ -80,6 +100,16 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Project::findOrFail($id);
+        if ($item) {
+            $status = $item->delete();
+            if ($status) {
+                return redirect()->route('projects.index')->with('success', 'Xóa dự án thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa dự án!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại dự án này!');
+        }
     }
 }

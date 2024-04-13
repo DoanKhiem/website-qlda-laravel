@@ -9,7 +9,12 @@
                     @include('layouts.notification')
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Danh sách nhân viên</h4>
+                            <div style="display: flex; align-items: center;  justify-content: space-between;">
+                                <h4 class="header-title">Danh sách nhân viên</h4>
+                                <a href="{{route('users.create')}}">
+                                    <button type="button" class="btn btn-success btn-xs mb-3">Thêm mới</button>
+                                </a>
+                            </div>
                             <div class="data-tables datatable-primary">
                                 <table id="dataTable2" class="text-center">
                                     <thead class="text-capitalize">
@@ -30,7 +35,13 @@
                                             <td>{{ $data->code }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->email }}</td>
-                                            <td>{{ $data->position }}</td>
+                                            <td>
+                                                @if($data->position == 0)
+                                                    <span class="badge badge-primary" style="font-size: 12px">Nhân viên</span>
+                                                @elseif($data->position == 1)
+                                                    <span class="badge badge-success" style="font-size: 12px">Quản lý</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{route('users.edit', $data->id)}}">
                                                     <button class="btn btn-rounded btn-warning btn-xs mb-3" type="button"

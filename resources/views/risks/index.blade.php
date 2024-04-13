@@ -9,7 +9,12 @@
                     @include('layouts.notification')
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Danh sách rủi ro</h4>
+                            <div style="display: flex; align-items: center;  justify-content: space-between;">
+                                <h4 class="header-title">Danh sách rủi ro</h4>
+                                <a href="{{route('risks.create')}}">
+                                    <button type="button" class="btn btn-success btn-xs mb-3">Thêm mới</button>
+                                </a>
+                            </div>
                             <div class="data-tables datatable-primary">
                                 <table id="dataTable2" class="text-center">
                                     <thead class="text-capitalize">
