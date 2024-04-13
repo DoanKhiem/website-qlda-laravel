@@ -43,6 +43,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if(Auth::user()->position == 1 && Auth::user()->id != $data->id)
                                                 <a href="{{route('users.edit', $data->id)}}">
                                                     <button class="btn btn-rounded btn-warning btn-xs mb-3" type="button"
                                                             value="Input"><i class="fa fa-edit"></i></button>
@@ -53,7 +54,7 @@
                                                     <button class="deleteBtn btn btn-rounded btn-danger btn-xs mb-3" type="button"
                                                             value="Reset"><i class="fa fa-trash"></i></button>
                                                 </form>
-
+                                                @endif
                                             </td>
                                             <td></td>
                                         </tr>

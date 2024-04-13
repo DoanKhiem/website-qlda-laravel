@@ -99,4 +99,27 @@ class ProfileController extends Controller
         $item = User::findOrFail($id);
         return view('users.edit', compact('item'));
     }
+
+    public function updateUser(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class.',email,'.$id],
+            'code' => ['required', 'string', 'max:255', 'unique:'.User::class.',code,'.$id],
+            'position' => ['required', 'integer'],
+        ]);
+
+        $status = User::where('id', $id)->update([
+            'code' => $request->code,
+            'position' => $request->position,
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        if ($status) {
+            return redirect()->route('users.index')->with('success', 'Cập nhật nhân viên thành công');
+        } else {
+            return back()->with('error', 'Lỗi cập nhật nhân viên');
+        }
+    }
 }

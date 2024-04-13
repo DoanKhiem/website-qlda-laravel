@@ -60,7 +60,7 @@
                                 <textarea class="form-control" name="description" aria-label="With textarea">{{old('description')}}</textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Thêm mới</button>
                         </form>
                     </div>
                 </div>
