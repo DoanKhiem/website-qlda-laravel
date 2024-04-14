@@ -30,7 +30,7 @@
                             <div class="seo-fact sbg1">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
                                     <div class="seofct-icon"><i class="fa fa-group"></i> Nhân viên</div>
-                                    <h2>2,315</h2>
+                                    <h2>{{$users->count()}}</h2>
                                 </div>
 {{--                                <canvas id="seolinechart1" height="50"></canvas>--}}
                             </div>
@@ -41,7 +41,7 @@
                             <div class="seo-fact sbg2">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
                                     <div class="seofct-icon"><i class="fa fa-archive"></i> Dự án</div>
-                                    <h2>3,984</h2>
+                                    <h2>{{$projects->count()}}</h2>
                                 </div>
 {{--                                <canvas id="seolinechart2" height="50"></canvas>--}}
                             </div>
@@ -52,7 +52,7 @@
                             <div class="seo-fact sbg3">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
                                     <div class="seofct-icon"><i class="ti-pie-chart"></i> Vấn đề</div>
-                                    <h2>3,984</h2>
+                                    <h2>{{$issues->count()}}</h2>
 {{--                                    <canvas id="seolinechart3" height="60"></canvas>--}}
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                             <div class="seo-fact sbg4">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
                                     <div class="seofct-icon"><i class="fa fa-warning"></i> Rủi ro</div>
-                                    <h2>3,984</h2>
+                                    <h2>{{$risks->count()}}</h2>
 {{--                                    <canvas id="seolinechart4" height="60"></canvas>--}}
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa bắt đầu", "Đang thực hiện", "Hoàn thành", "Quá hạn"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
@@ -129,7 +129,12 @@
                         "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountProjects[1] ?? 0 }}",
+                        "{{ $statusCountProjects[2] ?? 0 }}",
+                        "{{ $statusCountProjects[3] ?? 0 }}",
+                        "{{ $statusCountProjects[4] ?? 0 }}"
+                    ],
                 }]
             },
             // Configuration options go here
@@ -150,7 +155,7 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa bắt đầu", "Đang thực hiện", "Hoàn thành", "Quá hạn"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
@@ -159,7 +164,12 @@
                         "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountWork[1] ?? 0 }}",
+                        "{{ $statusCountWork[2] ?? 0 }}",
+                        "{{ $statusCountWork[3] ?? 0 }}",
+                        "{{ $statusCountWork[4] ?? 0 }}"
+                    ],
                 }]
             },
             // Configuration options go here
@@ -180,16 +190,19 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa sửa", "Đang sửa", "Đã sửa"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
                         "#12C498",
                         "#F8CB3F",
-                        "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountIssues[1] ?? 0 }}",
+                        "{{ $statusCountIssues[2] ?? 0 }}",
+                        "{{ $statusCountIssues[3] ?? 0 }}",
+                    ],
                 }]
             },
             // Configuration options go here
