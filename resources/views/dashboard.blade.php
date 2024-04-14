@@ -120,7 +120,7 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa bắt đầu", "Đang thực hiện", "Hoàn thành", "Quá hạn"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
@@ -129,7 +129,12 @@
                         "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountProjects[1] ?? 0 }}",
+                        "{{ $statusCountProjects[2] ?? 0 }}",
+                        "{{ $statusCountProjects[3] ?? 0 }}",
+                        "{{ $statusCountProjects[4] ?? 0 }}"
+                    ],
                 }]
             },
             // Configuration options go here
@@ -150,7 +155,7 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa bắt đầu", "Đang thực hiện", "Hoàn thành", "Quá hạn"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
@@ -159,7 +164,12 @@
                         "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountWork[1] ?? 0 }}",
+                        "{{ $statusCountWork[2] ?? 0 }}",
+                        "{{ $statusCountWork[3] ?? 0 }}",
+                        "{{ $statusCountWork[4] ?? 0 }}"
+                    ],
                 }]
             },
             // Configuration options go here
@@ -180,16 +190,19 @@
             type: 'doughnut',
             // The data for our dataset
             data: {
-                labels: ["FB", "TW", "G+", "INS"],
+                labels: ["Chưa sửa", "Đang sửa", "Đã sửa"],
                 datasets: [{
                     backgroundColor: [
                         "#8919FE",
                         "#12C498",
                         "#F8CB3F",
-                        "#E36D68"
                     ],
                     borderColor: '#fff',
-                    data: [810, 410, 260, 150],
+                    data: [
+                        "{{ $statusCountIssues[1] ?? 0 }}",
+                        "{{ $statusCountIssues[2] ?? 0 }}",
+                        "{{ $statusCountIssues[3] ?? 0 }}",
+                    ],
                 }]
             },
             // Configuration options go here
