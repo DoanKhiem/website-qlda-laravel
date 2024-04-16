@@ -37,23 +37,28 @@
                                             <td>{{ $data->email }}</td>
                                             <td>
                                                 @if($data->position == 0)
-                                                    <span class="badge badge-primary" style="font-size: 12px">Nhân viên</span>
+                                                    <span class="badge badge-primary"
+                                                          style="font-size: 12px">Nhân viên</span>
                                                 @elseif($data->position == 1)
-                                                    <span class="badge badge-success" style="font-size: 12px">Quản lý</span>
+                                                    <span class="badge badge-success"
+                                                          style="font-size: 12px">Quản lý</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                @if(Auth::user()->position == 1 && Auth::user()->id != $data->id)
-                                                <a href="{{route('users.edit', $data->id)}}">
-                                                    <button class="btn btn-rounded btn-warning btn-xs mb-3" type="button"
-                                                            value="Input"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <form action="{{route('users.destroy', $data->id)}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="deleteBtn btn btn-rounded btn-danger btn-xs mb-3" type="button"
-                                                            value="Reset"><i class="fa fa-trash"></i></button>
-                                                </form>
+                                                @if(Auth::user()->position == 1)
+                                                    <a href="{{route('users.edit', $data->id)}}">
+                                                        <button class="btn btn-rounded btn-warning btn-xs mb-3"
+                                                                type="button"
+                                                                value="Input"><i class="fa fa-edit"></i></button>
+                                                    </a>
+                                                    <form action="{{route('users.destroy', $data->id)}}" method="POST"
+                                                          class="d-inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="deleteBtn btn btn-rounded btn-danger btn-xs mb-3"
+                                                                type="button"
+                                                                value="Reset"><i class="fa fa-trash"></i></button>
+                                                    </form>
                                                 @endif
                                             </td>
                                             <td></td>
